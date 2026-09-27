@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <title>FLAC 转 MP3</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>FLAC 转 MP3</h1>
+    <p class="desc">文件只在浏览器本地转换，不会上传到服务器。</p>
+
+    <div class="dropzone" id="dropzone">
+      <p>点击选择 FLAC 文件，或把文件拖到这里</p>
+      <input type="file" id="fileInput" accept=".flac,audio/flac" multiple hidden />
+      <button id="selectBtn" class="btn">选择 FLAC 文件</button>
+    </div>
+
+    <div class="options">
+      <label>
+        MP3 比特率：
+        <select id="bitrate">
+          <option value="128">128 kbps</option>
+          <option value="192">192 kbps</option>
+          <option value="256">256 kbps</option>
+          <option value="320" selected>320 kbps</option>
+        </select>
+      </label>
+    </div>
+
+    <div id="fileList" class="file-list"></div>
+
+    <div class="actions">
+      <button id="convertBtn" class="btn primary" disabled>开始转换</button>
+      <button id="clearBtn" class="btn" disabled>清空列表</button>
+    </div>
+
+    <div id="status" class="status"></div>
+  </div>
+
+  <!-- 第三方库：实际使用时建议下载到本地 -->
+  <script src="https://cdn.jsdelivr.net/npm/lamejs@1.2.1/lame.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
